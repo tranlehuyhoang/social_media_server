@@ -7,7 +7,9 @@ import 'dotenv/config';
 import AuthRoute from "./Routers/AuthRoute.js";
 import UserRoute from "./Routers/UserRoute.js";
 import PostRoute from "./Routers/PostRoute.js";
+import UploadRoute from "./Routers/UploadRoute.js";
 import configureProxy from "./setupProxy.js";
+
 const app = express();
 configureProxy(app)
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
@@ -28,3 +30,4 @@ mongoose.connect(process.env.MONGO_BDS
 app.use('/auth', AuthRoute);
 app.use('/user', UserRoute);
 app.use('/post', PostRoute);
+app.use('/upload', UploadRoute);
